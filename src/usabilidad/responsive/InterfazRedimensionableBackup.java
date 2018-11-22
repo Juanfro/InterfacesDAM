@@ -17,9 +17,9 @@ import javax.swing.JTextField;
 import net.miginfocom.swing.MigLayout;
 
 @SuppressWarnings("serial")
-public class InterfazRedimensionable extends JFrame {
+public class InterfazRedimensionableBackup extends JFrame {
 
-	public InterfazRedimensionable() {
+	public InterfazRedimensionableBackup() {
 		setLayout(new MigLayout("fillX"));
 		setBounds(0, 0, 400, 500);
 		setLocationRelativeTo(null);
@@ -30,7 +30,7 @@ public class InterfazRedimensionable extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		InterfazRedimensionable miVentana = new InterfazRedimensionable();
+		InterfazRedimensionableBackup miVentana = new InterfazRedimensionableBackup();
 
 		// JPanel miPanel = new JPanel();
 		// miPanel.setBounds(20, 20, 300, 400);
@@ -68,12 +68,12 @@ public class InterfazRedimensionable extends JFrame {
 		// Añadir componentes al panel
 
 		// JPanel panelPrincipal = new JPanel(new MigLayout("fillX"));//Funciona
-		JPanel panelPrincipal = new JPanel(new MigLayout());
+		JPanel panelPrincipal = new JPanel(new MigLayout("fillX"));
 
 		panelPrincipal.setOpaque(false);
 
 		panelPrincipal.add(pais);
-		panelPrincipal.add(paises, "wrap, pushX, growX, span");
+		panelPrincipal.add(paises, "wrap, growX, span");
 		panelPrincipal.add(formato);
 		panelPrincipal.add(formatos, "wrap, growX");
 		panelPrincipal.add(autor);
@@ -108,7 +108,7 @@ public class InterfazRedimensionable extends JFrame {
 		JComboBox<String> selectOrdenar = new JComboBox<>(ordenaciones);
 		// END ELEMENTOS
 
-		JPanel panelOpciones = new JPanel(new MigLayout()); // panelOpciones.setBackground(Color.YELLOW);
+		JPanel panelOpciones = new JPanel(new MigLayout("fillX")); // panelOpciones.setBackground(Color.YELLOW);
 		panelOpciones.setOpaque(false);
 
 		botonOpciones.addActionListener(new ActionListener() {
@@ -134,7 +134,7 @@ public class InterfazRedimensionable extends JFrame {
 
 		// Añadir elementos
 		panelOpciones.add(publicacion);
-		panelOpciones.add(campoPublicacion, "wrap, pushX, growX");
+		panelOpciones.add(campoPublicacion, "wrap, growX");
 		panelOpciones.add(condicion);
 		panelOpciones.add(selectCondicion, "wrap, growX");
 		panelOpciones.add(tapa);
