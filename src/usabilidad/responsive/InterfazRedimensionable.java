@@ -25,7 +25,7 @@ public class InterfazRedimensionable extends JFrame {
 		setLocationRelativeTo(null);
 		setTitle("Formulario");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setBackground(Color.decode("#c2ba85"));
+		// setBackground(Color.decode("#c2ba85"));
 		getContentPane().setBackground(Color.decode("#c2ba85"));
 	}
 
