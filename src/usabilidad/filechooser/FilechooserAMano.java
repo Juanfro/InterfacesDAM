@@ -22,7 +22,7 @@ public class FilechooserAMano extends JFrame {
 
 		JFileChooser miFileChooser = new JFileChooser(".");
 		// miFileChooser.setBounds(20, 20, 300, 400);
-		miFileChooser.setVisible(true);
+		miFileChooser.setVisible(true);	
 
 		miVentana.add(miFileChooser, "growX");
 

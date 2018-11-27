@@ -10,21 +10,20 @@ import javax.swing.JTextArea;
 
 @SuppressWarnings("serial")
 public class Ej14 extends JFrame {
-	
+
 	public Ej14() {
 		setLayout(null);
 		setTitle("Ejercicio14");
 		setBounds(20, 20, 500, 800);
 		setLocationRelativeTo(null);
 	}
-	
+
 	static Ej14 miVentana = new Ej14();
 
 	public static void main(String[] args) {
-		
+
 		ejercicio14();
 
-		
 		miVentana.setVisible(true);
 	}
 
@@ -36,10 +35,10 @@ public class Ej14 extends JFrame {
 		JTextArea area1 = new JTextArea("Area1");
 		area1.setBounds(20, 20, 200, 100);
 		area1.setVisible(true);
-		
+
 		JTextArea area2 = new JTextArea("Area2");
 		area2.setBounds(20, 150, 200, 100);
-		area2.setVisible(true);		
+		area2.setVisible(true);
 
 		miVentana.add(area1);
 		miVentana.add(area2);
