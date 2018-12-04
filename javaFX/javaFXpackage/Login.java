@@ -23,10 +23,8 @@ public class Login extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setTitle("Login Screen");
 		GridPane root = new GridPane();
-		
-
 		Scene escena = new Scene(root, 300, 250);
-root.prefWidthProperty().bind(escena.widthProperty());
+
 		// Elementos
 		Label lUsuario = new Label("Usuario");
 		Label lPwd = new Label("Contraseña");
