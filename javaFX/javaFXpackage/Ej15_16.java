@@ -1,5 +1,7 @@
 package javaFXpackage;
 
+import com.sun.javafx.css.Style;
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -74,7 +76,38 @@ public class Ej15_16 extends Application {
 			public void handle(ActionEvent event) {
 				System.out.println("Entra");
 				String seleccionado = selectColores.getSelectionModel().getSelectedItem();
-				bCambiaColor.setBackground(new Background(new BackgroundFill(Color.AQUAMARINE, CornerRadii.EMPTY, Insets.EMPTY)));
+
+				bCambiaColor.setTextFill(Color.WHITE);
+				bCambiaColor.setStyle("-fx-font-weight: bold;");
+
+				if (seleccionado.equals("Rojo")) {
+					bCambiaColor.setBackground(
+							new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
+				} else if (seleccionado.equals("Verde")) {
+					bCambiaColor.setBackground(
+							new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
+				} else if (seleccionado.equals("Azul")) {
+					bCambiaColor.setBackground(
+							new Background(new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY)));
+				} else {
+					bCambiaColor.setBackground(
+							new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+					bCambiaColor.setTextFill(Color.BLACK);
+					// bCambiaColor.getStyleClass().clear();
+				}
+			}
+		});
+
+		bCambiaColor.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				Integer valorRojo = rojo.getSelectionModel().getSelectedItem();
+				Integer valorVerde = verde.getSelectionModel().getSelectedItem();
+				Integer valorAzul = azul.getSelectionModel().getSelectedItem();
+
+				bCambiaColor.setBackground(new Background(new BackgroundFill(Color.rgb(valorRojo, valorVerde, valorAzul),
+								CornerRadii.EMPTY, Insets.EMPTY)));
 			}
 		});
 
