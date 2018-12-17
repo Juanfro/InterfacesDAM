@@ -33,12 +33,17 @@ import javafx.stage.Stage;
  * primero. Uno debe mostrar dos JMenuItem que permitan modificar el tamaño del
  * JFrame y el segundo también debe mostrar dos JMenuItem que permitan cambiar
  * el color de fondo.</li>
+ * 
+ * <li>Mediante dos controles de tipo JTextField permitir introducir dos
+ * números. Crear un menú que contenga una opción que redimensione el JFrame con
+ * los valores introducidos por teclado. Finalmente disponer otra opción que
+ * finalice el programa.</li>
  * </ol>
  * 
  * @author Juan Antonio Rodriguez
  *
  */
-public class Ej17_18_19 extends Application {
+public class Ej17_18_19_20 extends Application {
 
 	// VBox root;
 	// Stage primaryStage;
@@ -47,7 +52,7 @@ public class Ej17_18_19 extends Application {
 	public void start(Stage primaryStage) /* throws Exception */ {
 		primaryStage.setTitle("Ejercicio 17, 18 y 19");
 		VBox root = new VBox(20);
-		// root.setPadding(new Insets(20));
+		root.setPadding(new Insets(20));
 		Scene escena = new Scene(root, 300, 250);
 
 		/* ejercicio17(primaryStage); */
@@ -135,7 +140,31 @@ public class Ej17_18_19 extends Application {
 		medium.setOnAction(eventoSize);
 		big.setOnAction(eventoSize);
 
-		root.getChildren().addAll(miMenuBar, campoNombre, selectPais, miButton);
+		// EJERCICIO 20
+
+		VBox ej20Pane = new VBox(20);
+
+		TextField campoAncho = new TextField();
+		campoAncho.setPromptText("Escribe el ancho de la ventana");
+		TextField campoAlto = new TextField();
+		campoAlto.setPromptText("Escribe el alto de la ventana");
+
+		Button bEj20 = new Button("Cambiar Tamaño");
+		bEj20.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				int ancho = Integer.parseInt(campoAncho.getText());
+				int alto = Integer.parseInt(campoAlto.getText());
+				primaryStage.setWidth(ancho);
+				primaryStage.setHeight(alto);
+
+			}
+		});
+
+		ej20Pane.getChildren().addAll(campoAncho, campoAlto, bEj20);
+
+		root.getChildren().addAll(miMenuBar, campoNombre, selectPais, miButton, ej20Pane);
 
 		primaryStage.setScene(escena);
 		primaryStage.show();
