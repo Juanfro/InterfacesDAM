@@ -50,9 +50,9 @@ public class Ej17_18_19_20 extends Application {
 
 	@Override
 	public void start(Stage primaryStage) /* throws Exception */ {
-		primaryStage.setTitle("Ejercicio 17, 18 y 19");
+		primaryStage.setTitle("Ejercicio 17, 18, 19 y 20");
 		VBox root = new VBox(20);
-		root.setPadding(new Insets(20));
+		// root.setPadding(new Insets(20));
 		Scene escena = new Scene(root, 300, 250);
 
 		/* ejercicio17(primaryStage); */
