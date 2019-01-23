@@ -23,7 +23,15 @@ public class Aplication extends Application {
 		TabPane root = new TabPane();
 
 		Scene escena = new Scene(root, 700, 600);
+		//escena.getStylesheets().add("javaFX/javaFXpackage/resources/seguros.css");
+		//escena.getStylesheets().add("seguros.css");
+		escena.getStylesheets().add(getClass().getResource("seguros.css").toExternalForm());
+		//escena.getStylesheets().add(Aplication.class.getResource("seguros.css").toExternalForm());
+		//escena.getStylesheets().add(Aplication.class.getResource("/Interfaces/javaFX/javaFXpackage/resources/seguros.css").toExternalForm());
 
+		
+		
+		
 		// Pestañas
 		Tab catalogo = new Tab("Catalogo de productos");
 		VBox paneCatalogo = new VBox(20);
@@ -60,6 +68,8 @@ public class Aplication extends Application {
 		HBox categoria = new HBox(15, lCategoria, comboCategoria);
 
 		VBox paneOpciones = new VBox(ramo, subRamo, categoria);
+		paneOpciones.getStyleClass().add("seccion");
+		paneOpciones.setId("opciones");
 
 		paneCatalogo.getChildren().add(paneOpciones);
 		// END Opciones
@@ -71,10 +81,12 @@ public class Aplication extends Application {
 
 		// Botón
 		Button btAvanzada = new Button("Búsqueda Avanada");
+		
 		VBox boxBoton = new VBox(5, btAvanzada);
 
 		// Parámetros
 		Label titulo = new Label("Búsqueda Avanzada");
+		titulo.setId("busquedatitulo");
 
 		Label lFechaAlta = new Label("Fecha de alta");
 		DatePicker fechaAltaInicio = new DatePicker();
@@ -106,6 +118,7 @@ public class Aplication extends Application {
 		// END Parámetros
 
 		HBox paneAvanzada = new HBox(5, boxBoton, boxParametrosBusqueda);
+		paneAvanzada.getStyleClass().add("seccion");
 
 		paneCatalogo.getChildren().add(paneAvanzada);
 		// END Búsqueda Avanzada
@@ -118,6 +131,7 @@ public class Aplication extends Application {
 		Button btInforme = new Button("Generar Informe");
 		Button btLimpiar = new Button("Limpiar");
 		HBox boxOpciones = new HBox(20, btBuscar, btInforme, btLimpiar);
+		boxOpciones.getStyleClass().add("seccion");
 
 		paneCatalogo.getChildren().add(boxOpciones);
 		// END acciones
