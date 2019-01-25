@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import util.DateUtil;
 
 public class PersonOverviewController {
 
@@ -49,6 +50,13 @@ public class PersonOverviewController {
 		// Inicializa la tabla de person con las dos columnas
 		firstNameColumn.setCellValueFactory(CellData -> CellData.getValue().firstNameProperty());
 		lastNameColumn.setCellValueFactory(CellData -> CellData.getValue().lastNameProperty());
+
+		// Limpia detalles de person
+		showPersonDetails(null);
+
+		// Escucha cambios de seleccion y muestra los datos de person.
+		personTable.getSelectionModel().selectedItemProperty()
+				.addListener((observable, oldValue, newValue) -> showPersonDetails(newValue));
 	}
 
 	/**
@@ -61,5 +69,43 @@ public class PersonOverviewController {
 
 		// Añadir datos de observable list a la tabla
 		personTable.setItems(mainApp.getPersonData());
+	}
+
+	/**
+	 * Rellena todos los campos de texto para mostrar los detalles sobr la
+	 * persona.<br>
+	 * Si la persona especificada es null, todos los campos se liberan
+	 * 
+	 * @param person
+	 */
+	private void showPersonDetails(Person person) {
+		if (person != null) {
+			// Rellena los labels con información del objeto person
+			firstNameLabel.setText(person.getFirstName());
+			lastNameLabel.setText(person.getLastName());
+			streetLabel.setText(person.getStreet());
+			postalCodeLabel.setText(Integer.toString(person.getPostalCode()));
+			cityLabel.setText(person.getCity());
+			birthdayLabel.setText(DateUtil.format(person.getBirthday()));
+
+		} else {
+			// Person es null. Borrar todo el texto
+			firstNameLabel.setText("");
+			lastNameLabel.setText("");
+			streetLabel.setText("");
+			postalCodeLabel.setText("");
+			cityLabel.setText("");
+			birthdayLabel.setText("");
+		}
+	}
+
+	/**
+	 * Llamado cuando el usuario hace click en el botón DELETE
+	 */
+	@FXML
+	private void handleDeletePerson() {
+		int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
+		personTable.getItems().remove(selectedIndex);
+		System.out.println("borrado");
 	}
 }

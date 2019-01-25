@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="address.view.PersonOverviewController">
+<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="address.view.PersonOverviewController">
 	<!-- <AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" 
 		xmlns="http://javafx.com/javafx/10.0.1"> -->
 	<children>
@@ -37,7 +37,7 @@
 							<buttons>
 								<Button mnemonicParsing="false" text="New..." />
 								<Button mnemonicParsing="false" text="Edit..." />
-								<Button mnemonicParsing="false" text="Delete" />
+								<Button mnemonicParsing="false" onAction="#handleDeletePerson" text="Delete" />
 							</buttons>
 						</ButtonBar>
 						<GridPane layoutX="14.0" layoutY="22.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0">
