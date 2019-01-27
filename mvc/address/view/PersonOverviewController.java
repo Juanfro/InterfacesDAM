@@ -1,5 +1,7 @@
 package address.view;
 
+import org.controlsfx.dialog.Dialogs;
+
 import address.MainApp;
 import address.model.Person;
 import javafx.fxml.FXML;
@@ -105,7 +107,20 @@ public class PersonOverviewController {
 	@FXML
 	private void handleDeletePerson() {
 		int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
-		personTable.getItems().remove(selectedIndex);
-		System.out.println("borrado");
+
+		if (selectedIndex > 0) {
+			personTable.getItems().remove(selectedIndex);
+			System.out.println("Borra");
+		} else {
+			// Nada seleccionado
+
+			/*
+			 * Dialogs.create().title("No Selection").masthead("No Person Selected")
+			 * .message("Please select a person in the table.").showWarning();
+			 */
+			System.out.println("no borra");
+
+		}
+		// personTable.getItems().remove(selectedIndex);
 	}
 }
