@@ -132,4 +132,46 @@ public class PersonOverviewController {
 		}
 		// personTable.getItems().remove(selectedIndex);
 	}
+
+	/**
+	 * El usuario hace click en New. Abre un dialogo para editar detalles de una
+	 * persona nueva.
+	 */
+	@FXML
+	private void handleNewPerson() {
+		Person tempPerson = new Person();
+		boolean okClicked = mainApp.showPersonEditDialog(tempPerson);
+		if (okClicked) {
+			mainApp.getPersonData().add(tempPerson);
+		}
+	}
+
+	/**
+	 * El usuario hace click en EDIT. Abre un dialogo para editar detalles de una
+	 * persona seleccionada.
+	 */
+	@FXML
+	private void handleEditPerson() {
+		Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
+		if (selectedPerson != null) {
+			boolean okClicked = mainApp.showPersonEditDialog(selectedPerson);
+			if (okClicked) {
+				showPersonDetails(selectedPerson);
+			}
+
+		} else {
+			// Nothing selected.
+			/*
+			 * Dialogs.create() .title("No Selection") .masthead("No Person Selected")
+			 * .message("Please select a person in the table.") .showWarning();
+			 */
+
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setTitle("No hay seleccion");
+			alert.setHeaderText("ERROR");
+			alert.setContentText("Elige una persona en la tabla");
+			alert.showAndWait();
+		}
+	}
+
 }
