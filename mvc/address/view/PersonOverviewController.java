@@ -107,12 +107,20 @@ public class PersonOverviewController {
 	@FXML
 	private void handleDeletePerson() {
 		int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
-		if (selectedIndex >= 0) {
-			personTable.getItems().remove(selectedIndex);
-		} else { // Nada seleccionado
-			Dialogs.create().title("No selection").masthead("No person selected")
-					.message("Please select a person in the table.").showWarning();
-		}
 
+		if (selectedIndex > 0) {
+			personTable.getItems().remove(selectedIndex);
+			System.out.println("Borra");
+		} else {
+			// Nada seleccionado
+
+			/*
+			 * Dialogs.create().title("No Selection").masthead("No Person Selected")
+			 * .message("Please select a person in the table.").showWarning();
+			 */
+			System.out.println("no borra");
+
+		}
+		// personTable.getItems().remove(selectedIndex);
 	}
 }
