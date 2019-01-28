@@ -5,6 +5,8 @@ import org.controlsfx.dialog.Dialogs;
 import address.MainApp;
 import address.model.Person;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -115,9 +117,16 @@ public class PersonOverviewController {
 			// Nada seleccionado
 
 			/*
-			 * Dialogs.create().title("No Selection").masthead("No Person Selected")
+			 * Dialogs.create() .title("No Selection") .masthead("No Person Selected")
 			 * .message("Please select a person in the table.").showWarning();
 			 */
+
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("No selection");
+			alert.setHeaderText("Header");
+			alert.setContentText("Please select a person in the table");
+			alert.showAndWait();
+
 			System.out.println("no borra");
 
 		}
