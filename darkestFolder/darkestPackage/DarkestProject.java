@@ -11,7 +11,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -38,7 +40,7 @@ public class DarkestProject extends Application {
 		this.primaryStage.getIcons().add(new Image("file:resources/images/darkest-dungeon-icon.png"));
 
 		initRootLayout();
-		showPersonOverView();
+		showHeroOverView();
 
 	}
 
@@ -63,8 +65,20 @@ public class DarkestProject extends Application {
 
 	}
 
-	private void showPersonOverView() {
-		// TODO Auto-generated method stub
+	private void showHeroOverView() {
+		// Cargar heroOverView
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(DarkestProject.class.getResource("darkestView/HeroOverView.fxml"));
+
+			AnchorPane heroOverview = loader.load();
+			
+			
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
