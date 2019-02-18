@@ -72,8 +72,9 @@ public class DarkestProject extends Application {
 			loader.setLocation(DarkestProject.class.getResource("darkestView/HeroOverView.fxml"));
 
 			AnchorPane heroOverview = loader.load();
-			
-			
+
+			TabPane tabPane = (TabPane) rootLayout.getChildren().get(1);
+			tabPane.getTabs().get(0).setContent(heroOverview);
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
