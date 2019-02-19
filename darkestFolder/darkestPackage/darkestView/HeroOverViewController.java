@@ -47,6 +47,14 @@ public class HeroOverViewController {
 		// Inicializa hero table con sus dos columnas
 		heroNameColumn.setCellValueFactory(CellData -> CellData.getValue().heroNameProperty());
 		heroClassColumn.setCellValueFactory(CellData -> CellData.getValue().heroClassProperty());
+
+		// Limpiar datos de Hero
+		showHeroDetails(null);
+
+		// Escuchar cambios en la selección y mostrar los datos del heroe al cambiar
+		heroTable.getSelectionModel().selectedItemProperty()
+				.addListener((observable, oldValue, newValue) -> showHeroDetails(newValue));
+
 	}
 
 	/**
@@ -62,5 +70,30 @@ public class HeroOverViewController {
 		heroTable.setItems(darkestMain.getHeroData());
 
 	}
+
+	/**
+	 * Rellena los campos para mostrar detalles sobre el heroe.<br>
+	 * Si el heroe es null (no hay uno seleccionado) se limpian todos los campos
+	 * 
+	 * @param hero
+	 */
+	private void showHeroDetails(Hero hero) {
+		if (hero != null) {
+			// Rellenar los labels con la información del objeto Hero
+
+			nameLabel.setText(hero.getName());
+			classLabel.setText(hero.getHeroClass());
+			levelLabel.setText(Integer.toString(hero.getHeroLevel()));
+			armorLabel.setText(Integer.toString(hero.getArmor()));
+			weaponLabel.setText(Integer.toString(hero.getWeapon()));
+		} else {// Hero es null: Borrar todo
+			nameLabel.setText("");
+			classLabel.setText("");
+			levelLabel.setText("");
+			armorLabel.setText("");
+			weaponLabel.setText("");
+
+		}
+	} // Show Hero Overview
 
 }
