@@ -1,7 +1,5 @@
 package address.view;
 
-import org.controlsfx.dialog.Dialogs;
-
 import address.MainApp;
 import address.model.Person;
 import javafx.fxml.FXML;

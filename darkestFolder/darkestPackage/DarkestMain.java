@@ -3,7 +3,8 @@ package darkestPackage;
 import java.io.IOException;
 
 import darkestPackage.darkestModel.Hero;
-import darkestPackage.darkestModel.Hero.HeroType;
+import darkestPackage.darkestModel.Hero.HeroClassEnum;
+import darkestPackage.darkestView.HeroOverViewController;
 import javafx.application.Application;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -17,19 +18,28 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class DarkestProject extends Application {
+public class DarkestMain extends Application {
 
 	private Stage primaryStage;
 	private BorderPane rootLayout;
 
 	private ObservableList<Hero> heroData = FXCollections.observableArrayList();
 
-	public DarkestProject() {
-		heroData.add(new Hero("Dismas", HeroType.HIGHWAYMAN));
-		heroData.add(new Hero("Reynauld", HeroType.CRUSADER));
-		heroData.add(new Hero("Pepe", HeroType.BOUNTY_HUNTER));
-		heroData.add(new Hero("Paco", HeroType.GRAVE_ROBBER));
-		heroData.add(new Hero("Manolo", HeroType.CRUSADER));
+	public DarkestMain() {
+		heroData.add(new Hero("Dismas", "HIGHWAYMAN"));
+		heroData.add(new Hero("Reynauld", "CRUSADER"));
+		heroData.add(new Hero("Pepe", "BOUNTY HUNTER"));
+		heroData.add(new Hero("Paco", "GRAVE ROBBER"));
+		heroData.add(new Hero("Manolo", "CRUSADER"));
+	}
+
+	/**
+	 * Devuelve los datos como una ObservableList objetos Hero
+	 * 
+	 * @return
+	 */
+	public ObservableList<Hero> getHeroData() {
+		return heroData;
 	}
 
 	@Override
@@ -49,7 +59,7 @@ public class DarkestProject extends Application {
 		try {
 			// Cargar root layout desde el fichero fxml
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(DarkestProject.class.getResource("darkestView/RootLayout.fxml"));
+			loader.setLocation(DarkestMain.class.getResource("darkestView/RootLayout.fxml"));
 			rootLayout = (BorderPane) loader.load();
 
 			// Mostrar la escena que contiene rootlayout
@@ -68,13 +78,19 @@ public class DarkestProject extends Application {
 	private void showHeroOverView() {
 		// Cargar heroOverView
 		try {
+
+			// Cargar la vista heroOverview en una pestaña de la vista raiz
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(DarkestProject.class.getResource("darkestView/HeroOverView.fxml"));
+			loader.setLocation(DarkestMain.class.getResource("darkestView/HeroOverView.fxml"));
 
 			AnchorPane heroOverview = loader.load();
 
 			TabPane tabPane = (TabPane) rootLayout.getChildren().get(1);
 			tabPane.getTabs().get(0).setContent(heroOverview);
+
+			// Darle al controlador acceso a la aplicacion main
+			HeroOverViewController controller = loader.getController();
+			controller.setMainApp(this);
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
