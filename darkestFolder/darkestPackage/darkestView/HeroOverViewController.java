@@ -3,9 +3,12 @@ package darkestPackage.darkestView;
 import darkestPackage.DarkestMain;
 import darkestPackage.darkestModel.Hero;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 
 public class HeroOverViewController {
 
@@ -29,6 +32,8 @@ public class HeroOverViewController {
 	@FXML
 	private Label weaponLabel;
 
+	@FXML
+	private Button button_dead;
 	// Referencia a la aplicacion main
 	private DarkestMain darkestMain;
 
@@ -54,6 +59,8 @@ public class HeroOverViewController {
 		// Escuchar cambios en la selección y mostrar los datos del heroe al cambiar
 		heroTable.getSelectionModel().selectedItemProperty()
 				.addListener((observable, oldValue, newValue) -> showHeroDetails(newValue));
+
+		// Disable dead is no hero selected
 
 	}
 
@@ -86,6 +93,11 @@ public class HeroOverViewController {
 			levelLabel.setText(Integer.toString(hero.getHeroLevel()));
 			armorLabel.setText(Integer.toString(hero.getArmor()));
 			weaponLabel.setText(Integer.toString(hero.getWeapon()));
+
+			// button_dead= new Button();
+			int selectedIndex = heroTable.getSelectionModel().getSelectedIndex();
+
+			button_dead.setDisable(false);
 		} else {// Hero es null: Borrar todo
 			nameLabel.setText("");
 			classLabel.setText("");
@@ -95,5 +107,21 @@ public class HeroOverViewController {
 
 		}
 	} // Show Hero Overview
+
+	@FXML
+	private void handleHeroDeath() {
+		int selectedIndex = heroTable.getSelectionModel().getSelectedIndex();
+
+		if (selectedIndex >= 0) {
+			heroTable.getItems().remove(selectedIndex);
+		} else {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("No selected hero");
+			alert.setHeaderText("ERROR");
+			alert.setContentText("Please select a hero in the table");
+			alert.showAndWait();
+		}
+
+	}
 
 }
