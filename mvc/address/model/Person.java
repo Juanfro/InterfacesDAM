@@ -88,6 +88,7 @@ public class Person {
 		return street;
 	}
 
+	// Codigo Postal ********************************************************
 	public int getPostalCode() {
 		return postalCode.get();
 	}
@@ -98,8 +99,9 @@ public class Person {
 
 	public IntegerProperty postalCodeProperty() {
 		return postalCode;
-	}
 
+	}
+	// Codigo Postal ***************************************************
 	public String getCity() {
 		return city.get();
 	}

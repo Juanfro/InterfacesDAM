@@ -4,7 +4,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="javaFX"/>
 	<classpathentry kind="src" path="mvc"/>
-	<classpathentry kind="src" path="darkestFolder"/>
+	<classpathentry excluding="darkestPackage/assets/" kind="src" path="darkestFolder"/>
+	<classpathentry kind="src" path="darkestFolder/darkestPackage/assets"/>
 	<classpathentry kind="lib" path="jcalendar-1.4.jar"/>
 	<classpathentry kind="lib" path="jgoodies-common-1.2.0.jar"/>
 	<classpathentry kind="lib" path="jgoodies-looks-2.4.1.jar"/>

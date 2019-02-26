@@ -11,6 +11,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
@@ -47,7 +48,12 @@ public class DarkestMain extends Application {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Darkest Dungeon");
 
-		this.primaryStage.getIcons().add(new Image("file:resources/images/darkest-dungeon-icon.png"));
+		// this.primaryStage.getIcons().add(new
+		// Image("file:resources/images/darkest-dungeon-icon.png"));
+		// this.primaryStage.getIcons().add(new
+		// Image("file:darkestFolder/darkestPackage/assets/darkest-dungeon-icon.png"));
+		this.primaryStage.getIcons()
+				.add(new Image("file:darkestFolder/darkestPackage/assets/darkest-dungeon-icon.png"));
 
 		initRootLayout();
 		showHeroOverView();
@@ -64,6 +70,11 @@ public class DarkestMain extends Application {
 
 			// Mostrar la escena que contiene rootlayout
 			Scene scene = new Scene(rootLayout);
+
+			// Cursor
+			Image image = new Image("file:darkestFolder/darkestPackage/assets/Arrow.png");
+			scene.setCursor(new ImageCursor(image));
+
 			primaryStage.setScene(scene);
 
 			// TODO Darle al controlador acceso a la aplicacion
@@ -82,15 +93,10 @@ public class DarkestMain extends Application {
 			// Cargar la vista heroOverview en una pestaña de la vista raiz
 			FXMLLoader loader = new FXMLLoader();
 			// loader.setLocation(DarkestMain.class.getResource("darkestView/HeroOverView.fxml"));
-			System.out.println("************************************DEBUG: antes del loader");
 
 			loader.setLocation(DarkestMain.class.getResource("view/HeroOverview.fxml"));
-			System.out.println("************************************DEBUG: despues del loader");
-
-			System.out.println("************************************DEBUG: Antes del load");
 
 			AnchorPane heroOverview = loader.load();
-			System.out.println("************************************DEBUG: Despues del load");
 
 			TabPane tabPane = (TabPane) rootLayout.getChildren().get(1);
 			tabPane.getTabs().get(0).setContent(heroOverview);

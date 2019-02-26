@@ -57,12 +57,12 @@ public class Hero {
 	// GETTERS & SETTERS
 
 	// Nombre
-	public String getName() {
+	public String getHeroName() {
 		return heroName.get();
 	}
 
-	public void setName(String name) {
-		this.heroName.set(name);
+	public void setHeroName(String heroName) {
+		this.heroName.set(heroName);
 	}
 
 	public StringProperty heroNameProperty() {
@@ -85,7 +85,7 @@ public class Hero {
 
 	// Level
 
-	public int getHeroLevel() {
+	public int getLevel() {
 		return level.get();
 	}
 
@@ -93,35 +93,35 @@ public class Hero {
 		this.level.set(level);
 	}
 
-	public IntegerProperty getLevel() {
+	public IntegerProperty getLevelProperty() {
 		return level;
 	}
 
 	// Armor
 
-	public int getArmor() {
+	public int getArmorTier() {
 		return armorTier.get();
 	}
 
-	public void setArmorTier(IntegerProperty armorTier) {
-		this.armorTier = armorTier;
+	public void setArmorTier(int armorTier) {
+		this.armorTier.set(armorTier);
 	}
 
-	public IntegerProperty getArmorTier() {
+	public IntegerProperty getArmorTierProperty() {
 		return armorTier;
 	}
 
 	// Weapon
 
-	public int getWeapon() {
+	public int getWeaponTier() {
 		return weaponTier.get();
 	}
 
-	public void setWeaponTier(IntegerProperty weaponTier) {
-		this.weaponTier = weaponTier;
+	public void setWeaponTier(int weaponTier) {
+		this.weaponTier.set(weaponTier);
 	}
 
-	public IntegerProperty getWeaponTier() {
+	public IntegerProperty getWeaponTierProperty() {
 		return weaponTier;
 	}
 
