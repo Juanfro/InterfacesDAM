@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import darkestPackage.darkestModel.Hero;
 import darkestPackage.darkestModel.Hero.HeroClassEnum;
-import darkestPackage.darkestView.HeroOverViewController;
+import darkestPackage.view.HeroOverViewController;
 import javafx.application.Application;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -59,7 +59,7 @@ public class DarkestMain extends Application {
 		try {
 			// Cargar root layout desde el fichero fxml
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(DarkestMain.class.getResource("darkestView/RootLayout.fxml"));
+			loader.setLocation(DarkestMain.class.getResource("view/RootLayout.fxml"));
 			rootLayout = (BorderPane) loader.load();
 
 			// Mostrar la escena que contiene rootlayout
@@ -81,9 +81,16 @@ public class DarkestMain extends Application {
 
 			// Cargar la vista heroOverview en una pestaña de la vista raiz
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(DarkestMain.class.getResource("darkestView/HeroOverView.fxml"));
+			// loader.setLocation(DarkestMain.class.getResource("darkestView/HeroOverView.fxml"));
+			System.out.println("************************************DEBUG: antes del loader");
+
+			loader.setLocation(DarkestMain.class.getResource("view/HeroOverview.fxml"));
+			System.out.println("************************************DEBUG: despues del loader");
+
+			System.out.println("************************************DEBUG: Antes del load");
 
 			AnchorPane heroOverview = loader.load();
+			System.out.println("************************************DEBUG: Despues del load");
 
 			TabPane tabPane = (TabPane) rootLayout.getChildren().get(1);
 			tabPane.getTabs().get(0).setContent(heroOverview);
@@ -93,10 +100,8 @@ public class DarkestMain extends Application {
 			controller.setMainApp(this);
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 	public static void main(String[] args) {

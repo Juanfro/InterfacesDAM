@@ -1,4 +1,4 @@
-package darkestPackage.darkestView;
+package darkestPackage.view;
 
 import darkestPackage.DarkestMain;
 import darkestPackage.darkestModel.Hero;
