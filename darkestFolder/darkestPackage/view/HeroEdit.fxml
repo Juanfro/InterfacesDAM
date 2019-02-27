@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane focusTraversable="true" prefHeight="251.0" prefWidth="298.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane focusTraversable="true" prefHeight="251.0" prefWidth="298.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="darkestPackage.view.HeroEditController">
    <children>
       <GridPane layoutX="10.0" layoutY="10.0" prefHeight="183.0" prefWidth="273.0">
          <columnConstraints>
@@ -31,23 +31,23 @@
             <Label text="Level" GridPane.rowIndex="2" />
             <Label text="Armor" GridPane.rowIndex="3" />
             <Label text="Weapon" GridPane.rowIndex="4" />
-            <ComboBox prefWidth="150.0" promptText="Class" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <ComboBox fx:id="classComboBox" prefWidth="150.0" promptText="Class" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ComboBox>
-            <ComboBox prefWidth="150.0" promptText="Level" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <ComboBox fx:id="levelComboBox" prefWidth="150.0" promptText="Level" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ComboBox>
-            <ComboBox prefWidth="150.0" promptText="Armor" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <ComboBox fx:id="armorComboBox" prefWidth="150.0" promptText="Armor" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ComboBox>
-            <ComboBox prefWidth="150.0" promptText="Weapon" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <ComboBox fx:id="weaponComboBox" prefWidth="150.0" promptText="Weapon" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ComboBox>
-            <TextField promptText="Hero Name" GridPane.columnIndex="1">
+            <TextField fx:id="heroNameField" promptText="Hero Name" GridPane.columnIndex="1">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
@@ -56,11 +56,11 @@
       </GridPane>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <buttons>
-          <Button mnemonicParsing="false" text="ACCEPT">
+          <Button mnemonicParsing="false" onAction="#handleOK" text="ACCEPT">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button mnemonicParsing="false" text="CANCEL">
+            <Button mnemonicParsing="false" onAction="#handleCancel" text="CANCEL">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

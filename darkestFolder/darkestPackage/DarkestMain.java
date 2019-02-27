@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import darkestPackage.darkestModel.Hero;
 import darkestPackage.darkestModel.Hero.HeroClassEnum;
+import darkestPackage.view.HeroEditController;
 import darkestPackage.view.HeroOverViewController;
 import javafx.application.Application;
 import javafx.beans.property.BooleanProperty;
@@ -17,6 +18,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class DarkestMain extends Application {
@@ -108,6 +110,51 @@ public class DarkestMain extends Application {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	/**
+	 * Abre el dialogo para editar los datos de un heroe. Si el usuario hace click
+	 * en OK, los cambios se guardan en el objeto "Heroe" asignado y se devuelve
+	 * true.
+	 * 
+	 * @param hero
+	 * @return
+	 */
+	public boolean showHeroEditDialog(Hero hero) {
+		/**
+		 * resultado
+		 */
+		boolean res;
+		try {
+			// Cargar el fichero fxml y crear un nuevo stage para el dialogo
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(DarkestMain.class.getResource("view/HeroEdit.fxml"));
+			AnchorPane page = (AnchorPane) loader.load();
+
+			// Crear el stage del dialogo
+			Stage dialogStage = new Stage();
+			dialogStage.setTitle("Edit Hero");
+			dialogStage.initModality(Modality.WINDOW_MODAL);
+			dialogStage.initOwner(primaryStage);
+			Scene scene = new Scene(page);
+			dialogStage.setScene(scene);
+
+			// Asignar al heroe en el controlador
+			HeroEditController controller = loader.getController();
+			controller.setDialogStage(dialogStage);
+			controller.setHero(hero);
+
+			// Mostrar el dialogo y esperar a que el usuario lo cierre
+			dialogStage.showAndWait();
+
+			res = controller.isOkClicked();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+			res = false;
+		}
+
+		return res;
 	}
 
 	public static void main(String[] args) {

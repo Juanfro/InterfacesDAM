@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="darkestPackage.view.HeroOverViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="darkestPackage.view.HeroOverViewController">
    <children>
       <SplitPane dividerPositions="0.4698996655518395" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -68,8 +68,8 @@
                   </GridPane>
                   <ButtonBar prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
                     <buttons>
-                      <Button mnemonicParsing="false" text="New" />
-                        <Button mnemonicParsing="false" text="Edit" />
+                      <Button mnemonicParsing="false" onAction="#handleNewHero" text="New" />
+                        <Button mnemonicParsing="false" onAction="#handleEditHero" text="Edit" />
                         <Button fx:id="button_dead" disable="true" mnemonicParsing="false" onAction="#handleHeroDeath" text="Dead" />
                     </buttons>
                   </ButtonBar>

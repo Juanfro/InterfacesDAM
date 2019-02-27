@@ -88,11 +88,11 @@ public class HeroOverViewController {
 		if (hero != null) {
 			// Rellenar los labels con la información del objeto Hero
 
-			nameLabel.setText(hero.getName());
+			nameLabel.setText(hero.getHeroName());
 			classLabel.setText(hero.getHeroClass());
-			levelLabel.setText(Integer.toString(hero.getHeroLevel()));
-			armorLabel.setText(Integer.toString(hero.getArmor()));
-			weaponLabel.setText(Integer.toString(hero.getWeapon()));
+			levelLabel.setText(Integer.toString(hero.getLevel()));
+			armorLabel.setText(Integer.toString(hero.getArmorTier()));
+			weaponLabel.setText(Integer.toString(hero.getWeaponTier()));
 
 			// button_dead= new Button();
 			int selectedIndex = heroTable.getSelectionModel().getSelectedIndex();
@@ -108,6 +108,9 @@ public class HeroOverViewController {
 		}
 	} // Show Hero Overview
 
+	/**
+	 * El usuario hace click en el boton "DEAD"
+	 */
 	@FXML
 	private void handleHeroDeath() {
 		int selectedIndex = heroTable.getSelectionModel().getSelectedIndex();
@@ -122,6 +125,42 @@ public class HeroOverViewController {
 			alert.showAndWait();
 		}
 
+	}
+
+	/**
+	 * El usuario ha hecho click en "New". Abre una ventana de dialogo para editar
+	 * los datos del nuvo heroe.
+	 */
+	@FXML
+	private void handleNewHero() {
+		Hero tempHero = new Hero();
+		boolean okClicked = darkestMain.showHeroEditDialog(tempHero);
+		if (okClicked) {
+			darkestMain.getHeroData().add(tempHero);
+		}
+
+	}
+
+	/**
+	 * El usuario ha hecho click en "EDIT". Abre una ventana de dialogo para editar
+	 * los datos del heroe seleccionado
+	 */
+	@FXML
+	private void handleEditHero() {
+		Hero selectedHero = heroTable.getSelectionModel().getSelectedItem();
+		if (selectedHero != null) {
+			boolean okClicked = darkestMain.showHeroEditDialog(selectedHero);
+			if (okClicked) {
+				showHeroDetails(selectedHero);
+			}
+		} else {
+			// Nada seleccionado
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("No selected hero");
+			alert.setHeaderText("ERROR");
+			alert.setContentText("Please select a hero in the table");
+			alert.showAndWait();
+		}
 	}
 
 }

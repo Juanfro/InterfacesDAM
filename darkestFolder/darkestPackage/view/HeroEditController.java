@@ -90,7 +90,9 @@ public class HeroEditController {
 	 */
 	@FXML
 	private void handleOK() {
+		System.out.println("Entra handle ok");
 		if (isInputValid()) {
+			System.out.println("Input Valid");
 			hero.setHeroName(heroNameField.getText());
 			hero.setHeroClass(classComboBox.getSelectionModel().getSelectedItem());
 			hero.setLevel(Integer.parseInt(levelComboBox.getSelectionModel().getSelectedItem()));
@@ -103,12 +105,21 @@ public class HeroEditController {
 	}
 
 	/**
+	 * Se llama a este método al hacer click en el boton cancelar
+	 */
+	@FXML
+	private void handleCancel() {
+		dialogStage.close();
+	}
+
+	/**
 	 * Validar los inputs
 	 * 
 	 * @return True si los inputs son válidos
 	 */
 	private boolean isInputValid() {
-		boolean valida;
+		System.out.println("isInputValid");
+		boolean valida = false;
 
 		String errorMessage = "";
 
@@ -146,8 +157,9 @@ public class HeroEditController {
 			alert.setContentText("Please correct invalid fields");
 			alert.showAndWait();
 		}
+		System.out.println();
 
-		return false;
+		return valida;
 	}
 
 }
