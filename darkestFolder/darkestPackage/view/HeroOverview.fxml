@@ -18,9 +18,9 @@
    <children>
       <SplitPane dividerPositions="0.4698996655518395" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@DarkTheme.css">
                <children>
-                  <TableView fx:id="heroTable" prefHeight="398.0" prefWidth="278.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="heroTable" prefHeight="398.0" prefWidth="278.0" styleClass="fondoHeroes" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
                       <TableColumn fx:id="heroNameColumn" prefWidth="75.0" text="HERO" />
                       <TableColumn fx:id="heroClassColumn" prefWidth="75.0" text="CLASS" />
@@ -34,7 +34,7 @@
                   </TableView>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="fondoHeroes" stylesheets="@DarkTheme.css">
                <children>
                   <Label alignment="CENTER" text="Hero Details" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
                   <GridPane layoutY="57.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">

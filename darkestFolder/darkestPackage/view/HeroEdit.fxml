@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane focusTraversable="true" prefHeight="251.0" prefWidth="298.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="darkestPackage.view.HeroEditController">
+<AnchorPane focusTraversable="true" prefHeight="251.0" prefWidth="298.0" styleClass="fondoHeroes" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="darkestPackage.view.HeroEditController">
    <children>
       <GridPane layoutX="10.0" layoutY="10.0" prefHeight="183.0" prefWidth="273.0">
          <columnConstraints>
